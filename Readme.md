@@ -4,6 +4,8 @@ A mobile-friendly QR code and barcode scanning/generating application with advan
 
 ![QR & Barcode Scanner/Generator](https://raw.githubusercontent.com/Shozon-Roy/QrCode-BarCode/refs/heads/main/20250522_223134.jpg)
 
+![QR & Barcode Scanner/Generator](https://raw.githubusercontent.com/Shozon-Roy/QrCode-BarCode/refs/heads/main/20250522_225958.jpg)
+
 ## 📱 Features
 
 ### Scanning 
