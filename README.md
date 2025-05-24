@@ -45,7 +45,7 @@ A mobile-friendly QR code and barcode scanning/generating application with advan
 
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/qr-barcode-scanner.git
+git clone https://github.com/shozon-roy/qr-barcode-scanner.git
 ```
 
 2. Navigate to the project directory:
