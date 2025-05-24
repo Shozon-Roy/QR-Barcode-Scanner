@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Using 60/30/10 rule:
+  Light Mode:
+  - 60% - Light background (#f8f9fc)
+  - 30% - Accent colors (light blue/purple tones)
+  - 10% - Contrasting elements (deep blue)
+  
+  Dark Mode:
+  - 60% - Dark background (#0f172a)
+  - 30% - Accent colors (deeper blue/purple tones)
+  - 10% - Contrasting elements (bright blue)
+*/
+
+:root {
+  /* Primary Colors (60%) */
+  --background: 214 60% 98%;
+  --foreground: 224 71% 4%;
+  --card: 214 60% 100%;
+  --card-foreground: 224 71% 4%;
+  --popover: 214 60% 100%;
+  --popover-foreground: 224 71% 4%;
+  
+  /* Secondary Colors (30%) */
+  --muted: 213 40% 95%;
+  --muted-foreground: 215 25% 40%;
+  --secondary: 214 40% 95%;
+  --secondary-foreground: 222 47% 11%;
+  --accent: 221 83% 95%;
+  --accent-foreground: 221 83% 53%;
+  --border: 214 35% 90%;
+  --input: 214 35% 90%;
+  
+  /* Accent Colors (10%) */
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+  --ring: 221 83% 53%;
+  --radius: 0.75rem;
+  
+  /* Custom QR app variables */
+  --header-font: 'Inter', Arial, sans-serif;
+  --main-bg: #f8fafc;
+  --card-radius: 24px;
+  
+  /* Light theme specific styles */
+  --vip-bg: linear-gradient(145deg, #f1f5f9, #e2e8f0);
+  --vip-shadow: 0 10px 30px 0 rgba(51, 65, 85, 0.12);
+  --vip-btn-bg: linear-gradient(135deg, #3b82f6, #2563eb);
+  --vip-btn-shadow: 0 8px 16px 0 rgba(37, 99, 235, 0.25);
+  --scanner-gradient: linear-gradient(135deg, #0ea5e9, #0284c7);
+  --scanimg-gradient: linear-gradient(135deg, #3b82f6, #2563eb);
+  --card-shadow: 0 10px 25px 0 rgba(51, 65, 85, 0.1);
+  --inactive-tab: #94a3b8;
+  --active-tab-bg: rgba(59, 130, 246, 0.1);
+  --active-tab: #3b82f6;
+  --tab-border-radius: 18px;
+  --gray-txt: #64748b;
+  --list-item-bg: #f1f5f9;
+  --list-item-radius: 20px;
+  --premium-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  --glass-effect-bg: rgba(255, 255, 255, 0.65);
+  --glass-effect-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --glass-effect-border: rgba(255, 255, 255, 0.3);
+}
+
+.dark {
+  /* Primary Colors (60%) */
+  --background: 222 47% 11%;
+  --foreground: 213 31% 91%;
+  --card: 222 47% 13%;
+  --card-foreground: 213 31% 91%;
+  --popover: 222 47% 13%;
+  --popover-foreground: 213 31% 91%;
+  
+  /* Secondary Colors (30%) */
+  --muted: 223 47% 14%;
+  --muted-foreground: 215 20% 70%;
+  --secondary: 222 47% 16%;
+  --secondary-foreground: 213 31% 91%;
+  --accent: 221 70% 20%;
+  --accent-foreground: 213 31% 91%;
+  --border: 216 34% 19%;
+  --input: 216 34% 19%;
+  
+  /* Accent Colors (10%) */
+  --primary: 221 83% 53%;
+  --primary-foreground: 213 31% 91%;
+  --destructive: 0 63% 40%;
+  --destructive-foreground: 213 31% 91%;
+  --ring: 224 76% 48%;
+  --radius: 0.75rem;
+  
+  /* Custom QR app dark variables */
+  --main-bg: #0f172a;
+  --vip-bg: linear-gradient(145deg, #1e293b, #0f172a);
+  --vip-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3);
+  --vip-btn-bg: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  --vip-btn-shadow: 0 8px 16px 0 rgba(30, 58, 138, 0.4);
+  --scanner-gradient: linear-gradient(135deg, #0ea5e9, #0369a1);
+  --scanimg-gradient: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  --card-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.3);
+  --inactive-tab: #64748b;
+  --active-tab-bg: rgba(59, 130, 246, 0.15);
+  --active-tab: #3b82f6;
+  --gray-txt: #94a3b8;
+  --list-item-bg: #1e293b;
+  --premium-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  --glass-effect-bg: rgba(15, 23, 42, 0.7);
+  --glass-effect-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  --glass-effect-border: rgba(15, 23, 42, 0.4);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    font-family: var(--header-font);
+    letter-spacing: 0.02em;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@layer components {
+  /* Premium UI Components */
+  .premium-card {
+    @apply rounded-2xl p-6 bg-white dark:bg-[#1e293b] transition-all duration-300;
+    box-shadow: var(--card-shadow);
+    backdrop-filter: blur(8px);
+  }
+  
+  .premium-button {
+    @apply py-3 px-6 rounded-xl font-medium transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98];
+    background: var(--premium-gradient);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  }
+  
+  .glass-card {
+    @apply rounded-2xl border backdrop-blur-md transition-all duration-300;
+    background: var(--glass-effect-bg);
+    box-shadow: var(--glass-effect-shadow);
+    border-color: var(--glass-effect-border);
+  }
+  
+  /* Enhanced Navigation */
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 flex items-center justify-between pt-3 pb-6 z-10 transition-all duration-300;
+    background: var(--glass-effect-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.12);
+    border-radius: 28px 28px 0 0;
+    border-top: 1px solid var(--glass-effect-border);
+  }
+
+  .nav-link {
+    @apply flex flex-col items-center justify-center w-full transition-all duration-300;
+    color: var(--inactive-tab);
+  }
+
+  .nav-link.active {
+    @apply font-medium;
+    color: var(--active-tab);
+  }
+
+  /* Improved History Tab */
+  .history-tab-btn {
+    @apply flex-1 text-center text-[1.13rem] font-semibold py-3 relative z-10 transition-all duration-300 rounded-xl mx-1;
+    color: var(--inactive-tab);
+  }
+
+  .history-tab-btn.active {
+    color: var(--active-tab);
+    background: var(--active-tab-bg);
+    font-weight: 700;
+  }
+
+  /* Scanner Gradients */
+  .scanner-gradient {
+    background: var(--scanner-gradient);
+    box-shadow: 0 8px 16px rgba(14, 165, 233, 0.15);
+  }
+
+  .scanimg-gradient {
+    background: var(--scanimg-gradient);
+    box-shadow: 0 8px 16px rgba(59, 130, 246, 0.15);
+  }
+
+  /* Enhanced VIP Card */
+  .vip-card {
+    @apply relative mx-4 mb-5 p-6 rounded-[28px] flex flex-col items-center text-center transition-all duration-300;
+    background: var(--vip-bg);
+    box-shadow: var(--vip-shadow);
+    border: 1px solid var(--glass-effect-border);
+  }
+
+  .vip-button {
+    @apply py-3 px-6 rounded-xl font-medium text-white transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98];
+    background: var(--vip-btn-bg);
+    box-shadow: var(--vip-btn-shadow);
+  }
+
+  /* History Items */
+  .history-item {
+    @apply flex items-center p-4 shadow-sm mb-4 transition-all duration-300 hover:translate-x-1;
+    background: var(--list-item-bg);
+    border-radius: var(--list-item-radius);
+  }
+
+  .history-icon {
+    @apply w-12 h-12 rounded-xl flex items-center justify-center text-2xl mr-4 text-white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Settings Items */
+  .settings-item {
+    @apply flex items-center justify-between p-4 mb-3 rounded-xl transition-all duration-300;
+    background: var(--list-item-bg);
+  }
+  
+  /* QR Display */
+  .qr-display {
+    @apply p-6 rounded-2xl bg-white dark:bg-[#1e293b] mx-auto my-4 transition-all duration-300;
+    box-shadow: var(--card-shadow);
+    max-width: 280px;
+  }
+}
