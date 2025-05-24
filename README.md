@@ -3,7 +3,7 @@
 A mobile-friendly QR code and barcode scanning/generating application with advanced theming and user experience features.
 
 ![QR & Barcode Scanner/Generator](https://raw.githubusercontent.com/Shozon-Roy/QR-Barcode-Scanner/refs/heads/main/20250522_223134.jpg)
-
+![Preview](https://raw.githubusercontent.com/Shozon-Roy/QR-Barcode-Scanner/refs/heads/main/20250522_225958.jpg)
 ## 📱 Features
 
 ### Scanning 
